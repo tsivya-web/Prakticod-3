@@ -1,2 +1,2 @@
-# Project-in-React
-project in reach with server side and client
+# Praktikod 3
+פרויקט  שמחבר בין שרת SQl לפרויקט ב react
