@@ -1,44 +1,89 @@
-# Praktikod 3
-Daily Tasks App
+# ✨ Daily Tasks - React & C#
+    
+🏆 Overview
+Daily Tasks is an intuitive application for managing daily tasks. 
 
-Overview
+The system includes a public page and a private page, where only registered users can access the private page.  
 
-The Daily Tasks App is a task management application built with React for the frontend and Node.js with an SQL database for the backend. It provides a public page accessible to all users and a private page accessible only to registered users.
 
-Features:
+Authentication is done using JSON Web Token (JWT), which is stored in Local Storage and sent with every request to the server, reducing server calls and ensuring secure authentication.
 
-Public page accessible to all users.
+## 🛠 Technologies
+🔹 Frontend: React.js with Hooks and Router
 
-Private page accessible only to authenticated users.
+🔹 Backend: C# with ASP.NET Web API
 
-User authentication with JWT tokens.
+🔹 Database: MYSQL Server
 
-Secure login and registration system.
+🔹 Authentication: JWT Token
 
-Tokens are stored in local storage to minimize server requests.
+## 🚀 Key Features
+✔️ Registration and login system with JWT
 
-Backend built with Node.js.
+✔️ Page separation - public and private based on permissions
 
-SQL database for storing user information and tasks.
+✔️ Reduced server load with token-based authentication
 
-Usage:
+✔️ Task management – add, delete, and update task statuses
 
-Open the public page.
+✔️ Secure database with relationships between users and tasks
 
-Register or log in to access the private page.
+## 📂 Project Structure
 
-Upon login, a JWT token is issued and stored in local storage.
+    
+    
+	📁 DailyTasksProject
 
-The token is sent with each request to the backend to verify authentication.
+     ┣ 📂 client          # React application
+     ┃ ┣ 📂 src
+     ┃ ┃ ┣ 📂 components  # Components
+     ┃ ┃ ┣ 📂 pages       # Pages (Public/Private)
+     ┃ ┃ ┣ 📜 App.js      # Main file
+    ┣ 📂 server          # C# server
+     ┃ ┣ 📂 Controllers   # API controllers
+     ┃ ┣ 📂 Models        # Data models
+     ┃ ┣ 📂 Services      # Business logic
+     ┃ ┣ 📜 Program.cs    # Main entry file
+     ┣ 📂 database        # Database scripts
+## ⚡ Installation and Running
+### 🔧 Installing the Frontend
+    sh
+    cd ToDoListReact-master-Client
+    npm install
+    npm start
+### 🔧 Installing the Backend
+    sh
+    cd ToDoApi-Server
+    dotnet run
+##  Usage:
+1.	🌐 Open the public page.
+2.	🔑 Register or log in to access the private page.
+3.	Upon login, a 🔑 JWT token is issued and stored in 💾 local storage.
+4.	The token is sent with each request to the backend to verify authentication.
+5.	If the token is invalid or tampered with, the user is redirected to the 🔒 login page.
 
-If the token is invalid or tampered with, the user is redirected to the login page.
+## 📊 Setting up the Database (SQL)
+    sql
+    CopyEdit
+    CREATE TABLE Users (
+        id INT PRIMARY KEY IDENTITY,
+        username NVARCHAR(50) UNIQUE NOT NULL,
+        passwordHash NVARCHAR(255) NOT NULL
+    );
 
-Technologies Used
+    CREATE TABLE Tasks (
+        id INT PRIMARY KEY IDENTITY,
+        userId INT FOREIGN KEY REFERENCES Users(id),
+        title NVARCHAR(100) NOT NULL,
+        completed BIT DEFAULT 0
+    );
+## 🔐 Security and Protection
+🔑 JWT is stored in Local Storage and sent with every request to the server
 
-React (Frontend)
+🔑 User authentication is performed on the server using a secure signing key
 
-Node.js (Backend)
+🔑 Permissions are checked before accessing the private page and performing database actions
 
-SQL (Database)
-
-JWT (Authentication)
+### 🎯 Contributing and Improving the Project
+We welcome collaboration! You can Fork the repository and submit a Pull Request with improvements and extensions.
+### 📧 Email: tsivyacohen@gmail.com
